@@ -1,0 +1,8 @@
+[
+  {
+    "directory": "/Users/thomasbarrett/Desktop/example/build",
+    "command": "cc -Iexample@exe -I. -I.. -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -g -MD -MQ 'example@exe/main.m.o' -MF 'example@exe/main.m.o.d' -o 'example@exe/main.m.o' -c ../main.m",
+    "file": "../main.m",
+    "output": "example@exe/main.m.o"
+  }
+]

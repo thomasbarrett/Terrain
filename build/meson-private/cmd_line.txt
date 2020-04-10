@@ -1,0 +1,6 @@
+[options]
+prefix = /Users/thomasbarrett/Desktop/example.app
+bindir = Contents/MacOS
+
+[properties]
+

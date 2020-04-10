@@ -1,0 +1,89 @@
+Build started at 2020-04-10T15:15:17.436485
+Main binary: /usr/local/opt/python@3.8/bin/python3.8
+Build Options: -Dprefix=/Users/thomasbarrett/Desktop/example.app -Dbindir=Contents/MacOS
+Python system: Darwin
+The Meson build system
+Version: 0.54.0
+Source dir: /Users/thomasbarrett/Desktop/example
+Build dir: /Users/thomasbarrett/Desktop/example/build
+Build type: native build
+None of 'PKG_CONFIG_PATH' are defined in the environment, not changing global flags.
+None of 'PKG_CONFIG_PATH' are defined in the environment, not changing global flags.
+Project name: tutorial
+Project version: undefined
+None of 'OBJC' are defined in the environment, not changing global flags.
+None of 'OBJCFLAGS' are defined in the environment, not changing global flags.
+None of 'LDFLAGS' are defined in the environment, not changing global flags.
+None of 'CPPFLAGS' are defined in the environment, not changing global flags.
+None of 'OBJC_LD' are defined in the environment, not changing global flags.
+Objective-C compiler for the build machine: cc (clang 11.0.0)
+Objective-C linker for the build machine: cc ld64 530
+None of 'AR' are defined in the environment, not changing global flags.
+None of 'OBJC' are defined in the environment, not changing global flags.
+None of 'OBJCFLAGS' are defined in the environment, not changing global flags.
+None of 'LDFLAGS' are defined in the environment, not changing global flags.
+None of 'CPPFLAGS' are defined in the environment, not changing global flags.
+None of 'OBJC_LD' are defined in the environment, not changing global flags.
+Objective-C compiler for the host machine: cc (clang 11.0.0)
+Objective-C linker for the host machine: cc ld64 530
+None of 'AR' are defined in the environment, not changing global flags.
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Target machine cpu family: x86_64
+Target machine cpu: x86_64
+Running command: /usr/bin/xcrun -sdk macosx --find metal
+--- stdout ---
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/metal
+
+--- stderr ---
+
+
+Running command: /usr/bin/xcrun -sdk macosx --find metallib
+--- stdout ---
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/metallib
+
+--- stderr ---
+
+
+Program /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/metal found: YES (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/metal)
+Program /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/metallib found: YES (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/metallib)
+Running compile:
+Working directory:  /Users/thomasbarrett/Desktop/example/build/meson-private/tmpy7iq0wev
+Command line:  cc /Users/thomasbarrett/Desktop/example/build/meson-private/tmpy7iq0wev/testfile.m -o /Users/thomasbarrett/Desktop/example/build/meson-private/tmpy7iq0wev/output.exe -pipe -O0 -framework Foundation 
+
+Code:
+ int main(void) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Running compile:
+Working directory:  /Users/thomasbarrett/Desktop/example/build/meson-private/tmp8qif9r5p
+Command line:  cc /Users/thomasbarrett/Desktop/example/build/meson-private/tmp8qif9r5p/testfile.m -o /Users/thomasbarrett/Desktop/example/build/meson-private/tmp8qif9r5p/output.exe -pipe -O0 -framework Cocoa 
+
+Code:
+ int main(void) { return 0; }
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Run-time dependency appleframeworks found: YES (Foundation, Cocoa)
+Build targets in project: 2
+
+Found ninja-1.10.0 at /usr/local/bin/ninja
+Running compile:
+Working directory:  /Users/thomasbarrett/Desktop/example/build/meson-private/tmp6pqv3w1r
+Command line:  cc /Users/thomasbarrett/Desktop/example/build/meson-private/tmp6pqv3w1r/testfile.m -o /Users/thomasbarrett/Desktop/example/build/meson-private/tmp6pqv3w1r/output.obj -pipe -c -O0 --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ programs: =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+libraries: =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0
+
+Compiler stderr:
+ 
+None of 'STRIP' are defined in the environment, not changing global flags.
+None of 'STRIP' are defined in the environment, not changing global flags.
