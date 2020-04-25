@@ -3,14 +3,9 @@
 
 #include <simd/simd.h>
 
-typedef enum VertexInputIndex {
-    VertexInputIndexVertices     = 0,
-    VertexInputIndexViewportSize = 1,
-} VertexInputIndex;
-
 typedef struct {
-    simd::float2 position;
-    simd::float4 color;
-} VertexData;
+    simd::float3 position;
+    simd::float2 textureCoordinate;
+} Vertex;
 
 #endif /* SHADER_TYPES_H */

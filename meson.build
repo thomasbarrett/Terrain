@@ -1,4 +1,5 @@
-project('tutorial', 'objc')
+project('tutorial', 'objcpp')
+add_global_arguments('-std=c++17', language : 'objcpp')
 
 metal_path = run_command('xcrun', '-sdk', 'macosx', '--find', 'metal').stdout().strip()
 metallib_path = run_command('xcrun', '-sdk', 'macosx', '--find', 'metallib').stdout().strip()
@@ -17,8 +18,9 @@ default_metallib = custom_target(
     install_dir : 'Contents/Resources'
 )
 
-dep_main = dependency('appleframeworks', modules : ['Foundation', 'Cocoa'])
+dep_main = dependency('appleframeworks', modules : ['Foundation', 'Cocoa', 'Metal', 'MetalKit'])
 
-executable('example', 'main.m', install : true, dependencies: dep_main)
+executable('example', 'main.mm', install : true, dependencies: dep_main)
 install_data('example.icns', install_dir : 'Contents/Resources')
 install_data('Info.plist', install_dir : 'Contents')
+install_data('blocks.png', install_dir : 'Contents/Resources')

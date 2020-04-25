@@ -1,1 +1,0 @@
-[{"name": "appleframeworks", "version": "unknown", "compile_args": [], "link_args": ["-framework", "Foundation", "-framework", "Cocoa"]}]

@@ -1,64 +1,35 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-Metal shaders used for this sample
-*/
-
 #include <metal_stdlib>
 #include <simd/simd.h>
 
 using namespace metal;
 
-// Include header shared between this Metal shader code and C code executing Metal API commands.
 #import "ShaderTypes.h"
 
-// Vertex shader outputs and fragment shader inputs
-typedef struct
-{
-    // The [[position]] attribute of this member indicates that this value
-    // is the clip space position of the vertex when this structure is
-    // returned from the vertex function.
+typedef struct {
     float4 position [[position]];
-
-    // Since this member does not have a special attribute, the rasterizer
-    // interpolates its value with the values of the other triangle vertices
-    // and then passes the interpolated value to the fragment shader for each
-    // fragment in the triangle.
-    float4 color;
-
+    float2 textureCoordinate;
 } RasterizerData;
 
-vertex RasterizerData
-vertexShader(uint vertexID [[vertex_id]],
-             constant VertexData *vertices [[buffer(VertexInputIndexVertices)]],
-             constant vector_uint2 *viewportSizePointer [[buffer(VertexInputIndexViewportSize)]])
-{
-    RasterizerData out;
-
-    // Index into the array of positions to get the current vertex.
-    // The positions are specified in pixel dimensions (i.e. a value of 100
-    // is 100 pixels from the origin).
-    float2 pixelSpacePosition = vertices[vertexID].position.xy;
-
-    // Get the viewport size and cast to float.
-    vector_float2 viewportSize = vector_float2(*viewportSizePointer);
+vertex RasterizerData vertexShader (
+        uint vertexID [[vertex_id]],
+        constant Vertex *vertices [[buffer(0)]],
+        constant vector_uint2 *viewportSizePointer [[buffer(1)]],
+        constant float4x4 &mvp [[buffer(2)]],
+        constant float4x4 &camera [[buffer(3)]]) {
     
-
-    // To convert from positions in pixel space to positions in clip-space,
-    //  divide the pixel coordinates by half the size of the viewport.
+    RasterizerData out;
     out.position = vector_float4(0.0, 0.0, 0.0, 1.0);
-    out.position.xy = pixelSpacePosition / (viewportSize / 2.0);
-
-    // Pass the input color directly to the rasterizer.
-    out.color = vertices[vertexID].color;
-
+    out.position.x = vertices[vertexID].position.x;
+    out.position.y = vertices[vertexID].position.z;
+    out.position.z = vertices[vertexID].position.y;
+    out.position = camera * mvp * out.position;
+    out.textureCoordinate = vertices[vertexID].textureCoordinate;
     return out;
 }
 
-fragment float4 fragmentShader(RasterizerData in [[stage_in]])
-{
-    // Return the interpolated color.
-    return in.color;
+fragment float4 fragmentShader (RasterizerData in [[stage_in]], texture2d<float> colorTexture [[ texture(0) ]]) {
+
+    constexpr sampler textureSampler (mag_filter::nearest, min_filter::nearest);
+    return colorTexture.sample(textureSampler, in.textureCoordinate);
 }
 
