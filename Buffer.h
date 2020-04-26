@@ -5,6 +5,10 @@
 #include <vector>
 #include <Metal/Metal.h>
 
+/**
+ * The Buffer class is a cross platform dynamically sized buffer containing
+ * geometry data in the form of vertices. It contains a list of triangles.
+ */
 class Buffer {
 private:
     std::vector<Vertex> data_;

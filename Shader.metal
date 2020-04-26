@@ -29,7 +29,7 @@ vertex RasterizerData vertexShader (
 
 fragment float4 fragmentShader (RasterizerData in [[stage_in]], texture2d<float> colorTexture [[ texture(0) ]]) {
 
-    constexpr sampler textureSampler (mag_filter::nearest, min_filter::nearest);
+    constexpr sampler textureSampler(filter::nearest, address::clamp_to_zero, mip_filter::nearest, lod_clamp(1.0f, MAXFLOAT), max_anisotropy(16));
     return colorTexture.sample(textureSampler, in.textureCoordinate);
 }
 
