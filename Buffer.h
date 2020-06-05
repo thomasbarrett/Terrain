@@ -69,13 +69,26 @@ private:
     size_t size_ = 0;
     size_t capacity_ = 0;
 public:
+    float secondsSinceFirstLoaded_ = 0.0;
+
+
     NativeBuffer() = default;
+    NativeBuffer(const NativeBuffer& buffer) {
+        data_ = buffer.data_;
+        size_ = buffer.size_;
+        capacity_ = buffer.capacity_;
+        secondsSinceFirstLoaded_ = buffer.secondsSinceFirstLoaded_;
+    };
+
     NativeBuffer(NativeDevice device, size_t capacity) {
         capacity_ = capacity;
         data_ = [device newBufferWithLength: (capacity * sizeof(Vertex)) 
                         options: MTLResourceOptionCPUCacheModeDefault];
     }
 
+    float secondsSinceFirstLoaded() const {
+        return secondsSinceFirstLoaded_;
+    }
     id<MTLBuffer> data() const {
         return data_;
     }
